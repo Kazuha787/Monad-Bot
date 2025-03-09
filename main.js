@@ -11,7 +11,7 @@ console.log(`⏩ Izumi Swap`.red);
 console.log(`⏩ Kitsu Staking`.red);
 console.log(`⏩ aPriori Staking`.red);
 console.log(`⏩ Auto Send`.red);
-console.log("");
+console.log(`⏩ Taya`.red); // Added Taya
 
 const scripts = [
   { name: "Uniswap", path: "./modul/uniswap.js" },
@@ -21,6 +21,7 @@ const scripts = [
   { name: "Kitsu Staking", path: "./modul/kitsu.js" },
   { name: "aPriori Staking", path: "./modul/apriori.js" },
   { name: "Auto Send", path: "./modul/send.js" },
+  { name: "Taya", path: "./taya.js" }, // Added Taya
 ];
 
 const { spawn } = require("child_process");
@@ -36,7 +37,7 @@ async function runScript(script) {
 
     process.on("close", (code) => {
       if (code === 0) {
-        console.log(`? Finished ${script.name}`);
+        console.log(`✅ Finished ${script.name}`);
         resolve();
       } else {
         console.error(`❌ Error in ${script.name} (Exit code: ${code})`);
